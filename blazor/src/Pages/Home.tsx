@@ -157,12 +157,6 @@ const Home =()=>
      
 
     useEffect(()=>{
-        // axios.get<Rows[]>('https://localhost:7060/api/data/GetPublicData?searchTerm=wind')
-        // .then((res)=>{
-        //     console.log(res)
-        //     setRows([...res.data.filter(data => data.id !== null)])
-        // })
-        // .catch(err => alert(err))
         debugger
         HandleSearch()
     },[issearch]) 
@@ -179,7 +173,8 @@ const Home =()=>
         })
         .catch(err => 
             {
-                setMsg(err.response.data)
+                debugger
+                setMsg(err.response? err.response.data:err.message)
                 setTimeout(()=>{
                     setShowModal(false)
                     setRows([])
